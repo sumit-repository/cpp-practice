@@ -29,3 +29,9 @@ Notes:
   		  B(int n, const int& m){} //Error: both "a" and "ref_i" expects initiation
   	  };
 
+-----	Copy Constructor    -----
+> Ways to write copy constructor for a class say "Base":
+	1. Base(const Base& b);
+	2. Base(Base& b);
+	3. Base(Base b); //wrong - reaons - ?
+
