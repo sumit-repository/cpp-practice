@@ -8,6 +8,10 @@ Notes:
   char str[]="name"  //this is array of string - mutable
 > char c1[]="hello" //in this case c is a const pointer - c1++ is not allowed
   char* c2 = new char[5]; //in this case c2 is a dynamically allocated pointer - hence c2++ is allowed
+> Resources:
+	Keerti: https://www.youtube.com/watch?v=uQB7jNWnZaI&t=741s
+	cherno: copying and copy constructor c++: https://www.youtube.com/watch?v=BvR1Pgzzr38&t=343s
+> 
 
 -----  Class    -----
 > Initializer List: extremely useful in the following cases:
