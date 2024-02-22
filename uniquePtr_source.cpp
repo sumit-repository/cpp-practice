@@ -36,9 +36,9 @@ int main() {
 	ptr3.get();
 	ptr3.reset(new int(4));
 	cout << *ptr3 << endl;
-
+	cout << *(ptr3.get()) << endl;
 	baseUniquePtr b1(new Base());
 	b1->func();
 
-  return 0;
+	return 0;
 }
