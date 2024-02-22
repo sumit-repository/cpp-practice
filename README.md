@@ -38,12 +38,12 @@ Notes:
 )
 
 -----	PragmaOne	-----
-	#pragma once 
+	1. #pragma once 
 		is the same as using:
-	#ifndef MYHEADER_H
-	#define MYHEADER_H
-	...
-	...
-	#endif // MYHEADER_H
+	2. #ifndef MYHEADER_H
+	. #define MYHEADER_H
+	. ...
+	. ...
+	. #endif // MYHEADER_H
 > These ensure that the contents of the header are included only once in a translation unit
 
