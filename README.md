@@ -36,3 +36,14 @@ Notes:
 	3. Base(Base b); //wrong - reaons - ?
 > Refer: https://www.youtube.com/watch?v=BkNItZtuKQM&ab_channel=NonTon (NonTon: Copy Constructor in C++ | why const and reference(&) ?
 )
+
+-----	PragmaOne	-----
+	#pragma once 
+		is the same as using:
+	#ifndef MYHEADER_H
+	#define MYHEADER_H
+	...
+	...
+	#endif // MYHEADER_H
+> These ensure that the contents of the header are included only once in a translation unit
+
