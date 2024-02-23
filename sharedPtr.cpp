@@ -61,14 +61,11 @@ void sharedPtr<T>::increaseCount() {
 
 template<typename T>
 void sharedPtr<T>::decreaseCount() {
-	if (!count)
-		return;
-	else if (count)
+	if (count) {
 		(*count)--;
-	if ((*count) == 0){
-		delete count;
-		count = nullptr;
-		if (res) {
+		if ((*count) == 0){
+			delete count;
+			count = nullptr;
 			delete res;
 			res = nullptr;
 		}
