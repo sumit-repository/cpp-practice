@@ -17,8 +17,8 @@ public:
 	sharedPtr(const sharedPtr <T>& t); //copy constructor
 	sharedPtr& operator=(const sharedPtr <T>& t); //assignment operator
 	
-	sharedPtr(sharedPtr <T>&& t); //move copy constructor
-	sharedPtr& operator=(sharedPtr<T>&& t); //move-assignment operator
+	sharedPtr(sharedPtr <T>&& t) noexcept; //move copy constructor
+	sharedPtr& operator=(sharedPtr<T>&& t) noexcept; //move-assignment operator
 
 	inline T& operator*() { return *res; }
 	inline T* operator->() { return res; }
@@ -26,5 +26,5 @@ public:
 	inline int getCount() { return *count; }
 	void reset(T* newres = nullptr);
 
-	//~sharedPtr() {}	
+	~sharedPtr();
 };
