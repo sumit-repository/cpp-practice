@@ -25,7 +25,7 @@ sharedPtr<T>& sharedPtr<T>::operator=(const sharedPtr<T>& t) {
 }
 
 template<typename T>
-sharedPtr<T>::sharedPtr(sharedPtr<T>&& t) {
+sharedPtr<T>::sharedPtr(sharedPtr<T>&& t) noexcept {
 	res = t.res;
 	count = t.count;
 	t.res = nullptr;
@@ -33,7 +33,7 @@ sharedPtr<T>::sharedPtr(sharedPtr<T>&& t) {
 }
 
 template<typename T>
-sharedPtr<T>& sharedPtr<T>::operator=(sharedPtr<T>&& t) {
+sharedPtr<T>& sharedPtr<T>::operator=(sharedPtr<T>&& t) noexcept {
 	if (this != &t) {
 		decreaseCount();
 		res = t.res;
@@ -61,9 +61,25 @@ void sharedPtr<T>::increaseCount() {
 
 template<typename T>
 void sharedPtr<T>::decreaseCount() {
+	if (!count)
+		return;
+	else if (count)
+		(*count)--;
+	if ((*count) == 0){
+		delete count;
+		count = nullptr;
+		if (res) {
+			delete res;
+			res = nullptr;
+		}
+	}
+}
+
+template<typename T>
+sharedPtr<T>::~sharedPtr() {
 	if (count) {
 		(*count)--;
-		if ((*count) == 0){
+		if ((*count) == 0) {
 			delete count;
 			count = nullptr;
 			delete res;
